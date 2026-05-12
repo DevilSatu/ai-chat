@@ -220,8 +220,6 @@ flowchart RL
 
 ```mermaid
 classDiagram
-    title [Уровень 4] Структура кода и сущностей
-    
     class Character {
         +string name
         +string prompt
@@ -258,5 +256,3 @@ classDiagram
     App ..> Character : текущие настройки
     App ..> FSStorage : вызовы API диска
     App ..> PromptBuilder : генерация контекста
-    classDef comp fill:#85bbf0,color:#000,stroke:#1168bd
-    classDef external fill:#999,color:#fff,stroke:#666
