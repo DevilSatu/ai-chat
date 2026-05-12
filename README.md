@@ -211,15 +211,10 @@ flowchart RL
         Parser["Import Parser<br/>(parser.ts)"]:::comp
     end
 
-    UI --> FS_M
-    UI --> Char_M
-    UI --> Parser
-    UI --- API[[OpenRouter API]]:::external
+    UI -->|"Сохранение чатов"| FS_M
+    UI -->|"Запрос промпта"| Char_M
+    UI -->|"Обработка импорта"| Parser
+    UI ---|"Запросы к ИИ"| API[[OpenRouter API]]:::external
 
     classDef comp fill:#85bbf0,color:#000,stroke:#1168bd
     classDef external fill:#999,color:#fff,stroke:#666
-
-    Rel(ui_kit, fs_module, "Сохранение чатов")
-    Rel(ui_kit, char_mgr, "Запрос промпта")
-    Rel(ui_kit, parser, "Обработка импорта")
-    Rel(ui_kit, api, "Запросы к ИИ", "HTTPS")
