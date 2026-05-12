@@ -258,7 +258,5 @@ classDiagram
     App ..> Character : текущие настройки
     App ..> FSStorage : вызовы API диска
     App ..> PromptBuilder : генерация контекста
-    UI ---|"Запросы к ИИ"| API[[OpenRouter API]]:::external
-
     classDef comp fill:#85bbf0,color:#000,stroke:#1168bd
     classDef external fill:#999,color:#fff,stroke:#666
