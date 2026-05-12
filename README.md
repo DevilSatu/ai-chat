@@ -176,3 +176,26 @@ C4Context
 
     Rel(user, ai_chat, "Взаимодействует")
     Rel(ai_chat, openrouter, "Запросы/Ответы", "HTTPS/Stream")
+
+``` 
+ 
+
+
+```mermaid
+C4Container
+    title [Уровень 2] Контейнеры
+
+    Person(user, "Пользователь", "Взаимодействует с интерфейсом.")
+    System_Ext(api, "OpenRouter API", "Обработка запросов ИИ.")
+
+    Container_Boundary(app_boundary, "Браузер") {
+        Container(web_app, "Web App (React)", "TS, Vite", "UI и бизнес-логика чата.")
+        ContainerDb(idb, "IndexedDB", "Браузерное хранилище", "Хранит ключи доступа к ФС.")
+    }
+
+    Container(fs, "Файловая система", "Диск пользователя", "Хранит .json чаты и настройки.")
+
+    Rel(user, web_app, "Использует")
+    Rel(web_app, api, "API вызовы", "Stream")
+    Rel(web_app, idb, "Читает/Пишет права")
+    Rel(web_app, fs, "CRUD файлов", "FS API")
