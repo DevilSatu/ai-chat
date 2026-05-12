@@ -217,6 +217,7 @@ flowchart RL
     UI -->|"Обработка импорта"| Parser
 
 ``` 
+### [ Уровень 4] Классы
 
 ```mermaid
 classDiagram
