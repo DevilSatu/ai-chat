@@ -163,4 +163,18 @@ flowchart LR
     UC_Char -.->|Запись current_char.json| FS
     UC_Import -.->|Чтение .txt/.md| FS
     UC_Manage -.->|Удаление/Создание .json| FS
-  
+    
+``` 
+
+Уровень 1: System Context
+
+```mermaid
+C4Context
+    title [Уровень 1] Диаграмма контекста системы AI Chat
+
+    Person(user, "Пользователь", "Человек, использующий чат для ролевого отыгрыша или работы с кодом.")
+    System(ai_chat, "Приложение AI Chat", "Веб-приложение для локального общения с ИИ, управления персонажами и хранения данных на диске.")
+    System_Ext(openrouter, "OpenRouter API", "Внешний провайдер моделей ИИ (DeepSeek и др.).")
+
+    Rel(user, ai_chat, "Взаимодействует через браузер")
+    Rel(ai_chat, openrouter, "Отправляет запросы и получает ответы", "HTTPS/Streaming")
