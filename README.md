@@ -215,6 +215,49 @@ flowchart RL
     UI -->|"Сохранение чатов"| FS_M
     UI -->|"Запрос промпта"| Char_M
     UI -->|"Обработка импорта"| Parser
+
+``` 
+
+```mermaid
+classDiagram
+    title [Уровень 4] Структура кода и сущностей
+    
+    class Character {
+        +string name
+        +string prompt
+        +boolean strictMode
+        +string facts
+    }
+    
+    class Message {
+        +string role
+        +string content
+    }
+
+    class ChatSession {
+        +string id
+        +Message[] messages
+        +string lastUpdated
+    }
+
+    class FSStorage {
+        <<module>>
+        +requestDirectoryAccess()
+        +saveFile(path, data)
+        +readFile(path)
+        +deleteFile(path)
+    }
+
+    class PromptBuilder {
+        <<module>>
+        +buildSystemPrompt(Character char)
+    }
+
+    App "1" *-- "many" ChatSession : управляет
+    ChatSession "1" *-- "many" Message : содержит
+    App ..> Character : текущие настройки
+    App ..> FSStorage : вызовы API диска
+    App ..> PromptBuilder : генерация контекста
     UI ---|"Запросы к ИИ"| API[[OpenRouter API]]:::external
 
     classDef comp fill:#85bbf0,color:#000,stroke:#1168bd
