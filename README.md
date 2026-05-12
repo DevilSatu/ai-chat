@@ -166,8 +166,9 @@ flowchart LR
     
 ``` 
 
+```mermaid
 C4Context
-    ```mermaid title [Уровень 1] Контекст системы
+    title [Уровень 1] Контекст системы
 
     Person(user, "Пользователь", "Использует чат для ролевого отыгрыша<br/>и работы с кодом.")
     System(ai_chat, "Приложение AI Chat", "Локальный чат, управление персонажами<br/>и хранение данных на диске.")
@@ -175,7 +176,3 @@ C4Context
 
     Rel(user, ai_chat, "Взаимодействует")
     Rel(ai_chat, openrouter, "Запросы/Ответы", "HTTPS/Stream")
-    System_Ext(openrouter, "OpenRouter API", "Внешний провайдер моделей ИИ (DeepSeek и др.).")
-
-    Rel(user, ai_chat, "Взаимодействует через браузер")
-    Rel(ai_chat, openrouter, "Отправляет запросы и получает ответы", "HTTPS/Streaming")
