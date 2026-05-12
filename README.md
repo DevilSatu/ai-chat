@@ -203,15 +203,21 @@ C4Container
 
 
 ```mermaid
-C4Component
-    title [Уровень 3] Компоненты (Web App)
+flowchart RL
+    subgraph WebApp ["Web Application Container"]
+        UI["UI Components<br/>(React)"]:::comp
+        FS_M["FS Module<br/>(fs-storage.ts)"]:::comp
+        Char_M["Char Manager<br/>(prompt-builder.ts)"]:::comp
+        Parser["Import Parser<br/>(parser.ts)"]:::comp
+    end
 
-    Container_Boundary(c1, "Web Application") {
-        Component(ui_kit, "UI Components", "React", "Окна, кнопки, логика чата.")
-        Component(fs_module, "FS Module", "ts-storage.ts", "Работа с файлами на диске.")
-        Component(char_mgr, "Char Manager", "prompt-builder.ts", "Генерация системных промптов.")
-        Component(parser, "Import Parser", "parser.ts", "Парсинг .txt и .md файлов.")
-    }
+    UI --> FS_M
+    UI --> Char_M
+    UI --> Parser
+    UI --- API[[OpenRouter API]]:::external
+
+    classDef comp fill:#85bbf0,color:#000,stroke:#1168bd
+    classDef external fill:#999,color:#fff,stroke:#666
 
     Rel(ui_kit, fs_module, "Сохранение чатов")
     Rel(ui_kit, char_mgr, "Запрос промпта")
