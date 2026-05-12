@@ -201,7 +201,7 @@ C4Container
     Rel(web_app, fs, "CRUD файлов", "FS API")
 ``` 
 
-### title [ Уровень 2] Компоненты
+### title [ Уровень 3] Компоненты
 
 ```mermaid
 flowchart RL
