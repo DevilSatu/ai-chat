@@ -199,3 +199,21 @@ C4Container
     Rel(web_app, api, "API вызовы", "Stream")
     Rel(web_app, idb, "Читает/Пишет права")
     Rel(web_app, fs, "CRUD файлов", "FS API")
+``` 
+
+
+```mermaid
+C4Component
+    title [Уровень 3] Компоненты (Web App)
+
+    Container_Boundary(c1, "Web Application") {
+        Component(ui_kit, "UI Components", "React", "Окна, кнопки, логика чата.")
+        Component(fs_module, "FS Module", "ts-storage.ts", "Работа с файлами на диске.")
+        Component(char_mgr, "Char Manager", "prompt-builder.ts", "Генерация системных промптов.")
+        Component(parser, "Import Parser", "parser.ts", "Парсинг .txt и .md файлов.")
+    }
+
+    Rel(ui_kit, fs_module, "Сохранение чатов")
+    Rel(ui_kit, char_mgr, "Запрос промпта")
+    Rel(ui_kit, parser, "Обработка импорта")
+    Rel(ui_kit, api, "Запросы к ИИ", "HTTPS")
