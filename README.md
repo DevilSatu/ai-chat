@@ -201,10 +201,10 @@ C4Container
     Rel(web_app, fs, "CRUD файлов", "FS API")
 ``` 
 
+### title [ Уровень 2] Компоненты
 
 ```mermaid
 flowchart RL
-  title [ Уровень 2] Компоненты
     subgraph WebApp ["Web Application Container"]
         UI["UI Components<br/>(React)"]:::comp
         FS_M["FS Module<br/>(fs-storage.ts)"]:::comp
