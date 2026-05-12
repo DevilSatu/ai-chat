@@ -204,6 +204,7 @@ C4Container
 
 ```mermaid
 flowchart RL
+  title [ Уровень 2] Компоненты
     subgraph WebApp ["Web Application Container"]
         UI["UI Components<br/>(React)"]:::comp
         FS_M["FS Module<br/>(fs-storage.ts)"]:::comp
