@@ -162,4 +162,4 @@ flowchart LR
     UC_Char -.->|Запись current_char.json| FS
     UC_Import -.->|Чтение .txt/.md| FS
     UC_Manage -.->|Удаление/Создание .json| FS
-    ```
+  
